@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FF Corretora | Cotação de Plano de Saúde</title>
+<meta name="description" content="Compare planos de saúde de várias operadoras para você, sua família ou sua empresa. Cotação gratuita pelo WhatsApp com a FF Corretora.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#112351">
+<link rel="icon" href="logo-ff.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1654455076395772');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1654455076395772&ev=PageView&noscript=1"></noscript>
+
+<style>
+  :root {
+    --navy: #112351;
+    --navy-2: #1a3270;
+    --gold: #f7d770;
+    --gold-2: #d9b14a;
+    --gold-3: #b8902f;
+    --cream: #f8f6f0;
+    --card: #ffffff;
+    --ink: #13213f;
+    --muted: #5b6478;
+    --line: #dfe3ec;
+    --erro: #b42318;
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font: 16px/1.5 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- topo azul ---------- */
+  .hero {
+    background:
+      radial-gradient(120% 80% at 50% 0%, var(--navy-2) 0%, var(--navy) 60%);
+    color: #fff;
+    padding: 28px 16px 92px;
+    text-align: center;
+  }
+  .hero .in { max-width: 520px; margin: 0 auto; }
+  .logo {
+    width: 104px; height: 104px; border-radius: 50%;
+    display: block; margin: 0 auto 18px;
+    box-shadow: 0 0 0 2px rgba(247,215,112,.35), 0 10px 30px rgba(0,0,0,.35);
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: 30px; line-height: 1.15; margin: 0 0 12px; letter-spacing: -.01em;
+  }
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(180deg, #fff3c4 0%, var(--gold) 45%, var(--gold-2) 100%);
+    -webkit-background-clip: text; background-clip: text; color: var(--gold);
+    -webkit-text-fill-color: transparent;
+  }
+  .sub { color: #d6dcef; margin: 0 auto; max-width: 440px; }
+  .ornamento {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin: 18px auto 0; color: var(--gold);
+  }
+  .ornamento::before, .ornamento::after {
+    content: ""; height: 1px; width: 90px; background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .ornamento::after { transform: scaleX(-1); }
+
+  /* ---------- conteúdo ---------- */
+  .wrap { max-width: 520px; margin: -64px auto 0; padding: 0 16px 40px; }
+
+  .tipos-plano {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px;
+  }
+  .tipos-plano div {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 6px; text-align: center; font-size: 12px; font-weight: 700;
+    color: var(--navy); letter-spacing: .04em; text-transform: uppercase;
+    box-shadow: 0 6px 18px rgba(17,35,81,.08);
+  }
+  .tipos-plano svg { display: block; margin: 0 auto 6px; color: var(--navy); }
+
+  form {
+    background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--gold-2);
+    border-radius: 16px; padding: 22px 16px; box-shadow: 0 10px 30px rgba(17,35,81,.10);
+  }
+  form h2 { font-family: var(--serif); font-size: 22px; margin: 0 0 4px; color: var(--navy); }
+  form .dica { font-size: 14px; color: var(--muted); margin: 0 0 18px; }
+
+  .campo { margin-bottom: 16px; }
+  label, legend { display: block; font-weight: 650; font-size: 15px; margin-bottom: 6px; color: var(--navy); }
+  .opc { font-weight: 400; color: var(--muted); font-size: 13px; }
+  input[type=number], input[type=text], textarea {
+    width: 100%; font: inherit; font-size: 16px; color: var(--ink);
+    border: 1.5px solid var(--line); border-radius: 10px; padding: 12px;
+    background: #fff; outline: none;
+  }
+  textarea { min-height: 104px; resize: vertical; }
+  input:focus, textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(17,35,81,.12); }
+
+  fieldset { border: 0; padding: 0; margin: 0 0 16px; min-width: 0; }
+  .tipos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tipo { position: relative; margin: 0; }
+  .tipo input { position: absolute; opacity: 0; pointer-events: none; }
+  .tipo span {
+    display: block; border: 1.5px solid var(--line); border-radius: 10px;
+    padding: 12px 10px; text-align: center; cursor: pointer; font-weight: 800; color: var(--navy);
+  }
+  .tipo span small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+  .tipo input:checked + span { border-color: var(--navy); background: var(--navy); color: var(--gold); }
+  .tipo input:checked + span small { color: #d6dcef; }
+  .tipo input:focus-visible + span { box-shadow: 0 0 0 3px rgba(17,35,81,.25); }
+
+  .erro { color: var(--erro); font-size: 13px; margin-top: 4px; display: none; }
+  .campo.invalido .erro, fieldset.invalido .erro { display: block; }
+  .campo.invalido input, .campo.invalido textarea { border-color: var(--erro); }
+  fieldset.invalido .tipo span { border-color: var(--erro); }
+
+  button {
+    width: 100%; border: 0; border-radius: 12px; padding: 16px; cursor: pointer;
+    background: linear-gradient(180deg, #fbe08a 0%, var(--gold-2) 100%);
+    color: var(--navy); font: inherit; font-size: 17px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    box-shadow: 0 6px 16px rgba(184,144,47,.35), inset 0 1px 0 rgba(255,255,255,.6);
+  }
+  button:active { transform: translateY(1px); }
+  .priv { font-size: 12px; color: var(--muted); text-align: center; margin: 10px 0 0; }
+
+  .selos { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; }
+  .selos li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+  .selos li::before {
+    content: "✓"; flex: none; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--navy); color: var(--gold); font-size: 13px; font-weight: 800;
+    display: grid; place-items: center; margin-top: 1px;
+  }
+
+  footer {
+    background: var(--navy); color: #c7cee3; text-align: center;
+    font-size: 13px; padding: 22px 16px;
+  }
+  footer strong { font-family: var(--serif); color: var(--gold); font-size: 16px; letter-spacing: .08em; }
+  footer a { color: #c7cee3; }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="in">
+    <img class="logo" src="logo-ff.jpg" alt="FF Corretora" width="104" height="104">
+    <h1>Encontre o plano de saúde com o <em>melhor custo-benefício</em></h1>
+    <p class="sub">Para você, sua família ou sua empresa. Comparamos as operadoras e enviamos sua cotação gratuita pelo WhatsApp.</p>
+    <div class="ornamento" aria-hidden="true">◆</div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <div class="tipos-plano" aria-label="Tipos de plano">
+    <div>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      Individual
+    </div>
+    <div>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="7" cy="6" r="2.6"/><circle cx="17" cy="6" r="2.6"/><circle cx="12" cy="12" r="2"/><path d="M2.5 20v-4.5A3.5 3.5 0 0 1 6 12h2M21.5 20v-4.5A3.5 3.5 0 0 0 18 12h-2M8.5 21v-2.5a3.5 3.5 0 0 1 7 0V21"/></svg>
+      Familiar
+    </div>
+    <div>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1M10.5 21v-3h3v3"/></svg>
+      Empresarial
+    </div>
+  </div>
+
+  <form id="form" novalidate>
+    <h2>Receba sua cotação</h2>
+    <p class="dica">3 perguntas rápidas e você continua a conversa com a gente no WhatsApp.</p>
+
+    <div class="campo" id="c-idade">
+      <label for="idade">Qual a sua idade?</label>
+      <input id="idade" name="idade" type="number" inputmode="numeric" min="0" max="120" placeholder="Ex.: 42" required>
+      <div class="erro">Informe sua idade.</div>
+    </div>
+
+    <div class="campo" id="c-bairro">
+      <label for="bairro">Qual o seu bairro?</label>
+      <input id="bairro" name="bairro" type="text" autocomplete="address-level3" placeholder="Ex.: Brás, Mooca, Tatuapé" required>
+      <div class="erro">Informe seu bairro.</div>
+    </div>
+
+    <fieldset id="c-tipo">
+      <legend>O plano é para CNPJ ou CPF?</legend>
+      <div class="tipos">
+        <label class="tipo"><input type="radio" name="tipo" value="CNPJ"><span>CNPJ<small>Empresa ou MEI</small></span></label>
+        <label class="tipo"><input type="radio" name="tipo" value="CPF"><span>CPF<small>Pessoa física</small></span></label>
+      </div>
+      <div class="erro">Escolha CNPJ ou CPF.</div>
+    </fieldset>
+
+    <div class="campo">
+      <label for="obs">Observações <span class="opc">(opcional)</span></label>
+      <textarea id="obs" name="obs" maxlength="800" placeholder="Conte o que for importante: se já tem ou já teve plano e qual era a operadora, quantas pessoas vão entrar, idades, alguma necessidade específica..."></textarea>
+    </div>
+
+    <button type="submit">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.2z"/></svg>
+      Quero minha cotação no WhatsApp
+    </button>
+    <p class="priv">Suas respostas vão só para a equipe da FF Corretora.</p>
+  </form>
+
+  <ul class="selos">
+    <li>Planos empresariais para CNPJ e MEI a partir de 2 vidas</li>
+    <li>Planos individuais e familiares para todas as fases da vida</li>
+    <li>Comparamos várias operadoras para você, sem custo</li>
+    <li>Atendimento humano do início ao fim</li>
+  </ul>
+</main>
+
+<footer>
+  <strong>FF CORRETORA</strong><br>
+  Planos de Saúde e Seguro de Vida · <a href="https://instagram.com/ff.corretora" target="_blank" rel="noopener">@ff.corretora</a>
+  <span id="susep"></span>
+</footer>
+
+<script>
+// ===== CONFIGURAÇÃO: edite só aqui =====
+var CONFIG = {
+  whatsapp: '5511978908317',   // número que recebe os leads: (11) 97890-8317
+  susep: ''                    // ex.: 'SUSEP nº 123456' (deixe vazio para não mostrar)
+};
+// =======================================
+
+if (CONFIG.susep) document.getElementById('susep').textContent = ' · ' + CONFIG.susep;
+
+var form = document.getElementById('form');
+
+function marcar(id, ok) {
+  document.getElementById(id).classList.toggle('invalido', !ok);
+  return ok;
+}
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  // valores EXATAMENTE como a pessoa digitou (só tira espaços nas pontas)
+  var idade = form.idade.value.trim();
+  var bairro = form.bairro.value.trim();
+  var tipoEl = form.querySelector('input[name=tipo]:checked');
+  var tipo = tipoEl ? tipoEl.value : '';
+  var obs = form.obs.value.trim();
+
+  var n = Number(idade);
+  var ok = marcar('c-idade', idade !== '' && n >= 0 && n <= 120);
+  ok = marcar('c-bairro', bairro !== '') && ok;
+  ok = marcar('c-tipo', tipo !== '') && ok;
+  if (!ok) {
+    var primeiro = form.querySelector('.invalido');
+    if (primeiro) primeiro.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  var msg =
+    'Olá, FF Corretora! Quero uma cotação de plano de saúde.\n\n' +
+    '*Idade:* ' + idade + '\n' +
+    '*Bairro:* ' + bairro + '\n' +
+    '*CNPJ ou CPF:* ' + tipo + '\n' +
+    '*Observações:* ' + (obs || '-');
+
+  var url = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg);
+
+  // conta o lead no Pixel (só o tipo, sem idade/bairro/observações)
+  try { fbq('track', 'Lead', { content_category: tipo }); } catch (err) {}
+
+  // pequena espera para o Pixel registrar antes de abrir o WhatsApp
+  setTimeout(function () { window.location.href = url; }, 400);
+});
+
+['idade', 'bairro'].forEach(function (id) {
+  document.getElementById(id).addEventListener('input', function () {
+    document.getElementById('c-' + id).classList.remove('invalido');
+  });
+});
+form.querySelectorAll('input[name=tipo]').forEach(function (r) {
+  r.addEventListener('change', function () { marcar('c-tipo', true); });
+});
+</script>
+</body>
+</html>
