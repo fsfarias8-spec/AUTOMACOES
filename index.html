@@ -143,6 +143,20 @@ fbq('track', 'PageView');
   }
   button:active { transform: translateY(1px); }
   .priv { font-size: 12px; color: var(--muted); text-align: center; margin: 10px 0 0; }
+  .priv a { color: var(--muted); }
+  button[disabled] { opacity: .7; cursor: wait; }
+  .erro-envio { color: var(--erro); font-size: 14px; text-align: center; margin: 10px 0 0; }
+  .sucesso {
+    background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--gold-2);
+    border-radius: 16px; padding: 28px 18px; text-align: center; box-shadow: 0 10px 30px rgba(17,35,81,.10);
+  }
+  .sucesso .ok {
+    width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 12px;
+    background: var(--navy); color: var(--gold); font-size: 28px; font-weight: 800;
+    display: grid; place-items: center;
+  }
+  .sucesso h2 { font-family: var(--serif); color: var(--navy); margin: 0 0 6px; font-size: 22px; }
+  .sucesso p { margin: 0; color: var(--muted); }
 
   .selos { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; }
   .selos li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
@@ -190,7 +204,22 @@ fbq('track', 'PageView');
 
   <form id="form" novalidate>
     <h2>Receba sua cotação</h2>
-    <p class="dica">3 perguntas rápidas e você continua a conversa com a gente no WhatsApp.</p>
+    <p class="dica">Preencha em menos de 1 minuto. A nossa equipe te chama no WhatsApp com as opções.</p>
+
+    <div class="campo" id="c-nome">
+      <label for="nome">Seu nome</label>
+      <input id="nome" name="nome" type="text" autocomplete="name" maxlength="80" placeholder="Ex.: Maria Silva" required>
+      <div class="erro">Informe seu nome.</div>
+    </div>
+
+    <div class="campo" id="c-telefone">
+      <label for="telefone">Seu WhatsApp com DDD</label>
+      <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="Ex.: (11) 91234-5678" required>
+      <div class="erro">Informe um WhatsApp válido com DDD.</div>
+    </div>
+
+    <!-- anti-robô: humanos não veem este campo -->
+    <input type="text" name="_honey" id="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
 
     <div class="campo" id="c-idade">
       <label for="idade">Quais as idades?</label>
@@ -220,10 +249,17 @@ fbq('track', 'PageView');
 
     <button type="submit">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.2z"/></svg>
-      Quero minha cotação no WhatsApp
+      <span id="btn-txt">Quero minha cotação</span>
     </button>
-    <p class="priv">Suas respostas vão só para a equipe da FF Corretora.</p>
+    <p class="erro-envio" id="erro-envio" hidden>Não conseguimos enviar agora. Tente de novo em instantes.</p>
+    <p class="priv">Suas respostas vão só para a equipe da FF Corretora. <a href="privacidade.html">Privacidade</a></p>
   </form>
+
+  <div class="sucesso" id="sucesso" hidden>
+    <div class="ok">✓</div>
+    <h2>Recebemos seu pedido!</h2>
+    <p>A equipe da FF Corretora vai te chamar no WhatsApp em breve com as opções de plano.</p>
+  </div>
 
   <ul class="selos">
     <li>No CPF a partir de 1 vida: planos individuais e familiares</li>
@@ -243,7 +279,8 @@ fbq('track', 'PageView');
 <script>
 // ===== CONFIGURAÇÃO: edite só aqui =====
 var CONFIG = {
-  whatsapp: '5511978908317',   // número que recebe os leads: (11) 97890-8317
+  // para onde o lead vai (FormSubmit). Depois de ativar, troque o e-mail pelo código que o FormSubmit enviar
+  destino: 'https://formsubmit.co/ajax/fsfarias8@gmail.com',
   susep: ''                    // ex.: 'SUSEP nº 123456' (deixe vazio para não mostrar)
 };
 // =======================================
@@ -261,13 +298,17 @@ form.addEventListener('submit', function (e) {
   e.preventDefault();
 
   // valores EXATAMENTE como a pessoa digitou (só tira espaços nas pontas)
+  var nome = form.nome.value.trim();
+  var telefone = form.telefone.value.trim();
   var idade = form.idade.value.trim();
   var bairro = form.bairro.value.trim();
   var tipoEl = form.querySelector('input[name=tipo]:checked');
   var tipo = tipoEl ? tipoEl.value : '';
   var obs = form.obs.value.trim();
 
-  var ok = marcar('c-idade', /\d/.test(idade));   // precisa ter pelo menos um número
+  var ok = marcar('c-nome', nome !== '');
+  ok = marcar('c-telefone', telefone.replace(/\D/g, '').length >= 10) && ok;   // DDD + número
+  ok = marcar('c-idade', /\d/.test(idade)) && ok;                              // pelo menos um número
   ok = marcar('c-bairro', bairro !== '') && ok;
   ok = marcar('c-tipo', tipo !== '') && ok;
   if (!ok) {
@@ -276,23 +317,48 @@ form.addEventListener('submit', function (e) {
     return;
   }
 
-  var msg =
-    'Olá, FF Corretora! Quero uma cotação de plano de saúde.\n\n' +
-    '*Idades:* ' + idade + '\n' +
-    '*Bairro:* ' + bairro + '\n' +
-    '*CNPJ ou CPF:* ' + tipo + '\n' +
-    '*Observações:* ' + (obs || '-');
+  var botao = form.querySelector('button');
+  var erroEnvio = document.getElementById('erro-envio');
+  botao.disabled = true;
+  document.getElementById('btn-txt').textContent = 'Enviando...';
+  erroEnvio.hidden = true;
 
-  var url = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg);
+  var dados = {
+    'Nome': nome,
+    'WhatsApp': telefone,
+    'Idades': idade,
+    'Bairro': bairro,
+    'CNPJ ou CPF': tipo,
+    'Observações': obs || '-',
+    _subject: 'Novo lead plano de saúde: ' + nome + ' (' + tipo + ')',
+    _template: 'table',
+    _captcha: 'false',
+    _honey: document.getElementById('_honey').value
+  };
 
-  // conta o lead no Pixel (só o tipo, sem idade/bairro/observações)
-  try { fbq('track', 'Lead', { content_category: tipo }); } catch (err) {}
-
-  // pequena espera para o Pixel registrar antes de abrir o WhatsApp
-  setTimeout(function () { window.location.href = url; }, 400);
+  fetch(CONFIG.destino, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(dados)
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+      if (String(res.success) !== 'true') throw new Error(res.message || 'falha');
+      // conta o lead no Pixel (só o tipo, sem dados pessoais)
+      try { fbq('track', 'Lead', { content_category: tipo }); } catch (err) {}
+      form.hidden = true;
+      var s = document.getElementById('sucesso');
+      s.hidden = false;
+      s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })
+    .catch(function () {
+      botao.disabled = false;
+      document.getElementById('btn-txt').textContent = 'Quero minha cotação';
+      erroEnvio.hidden = false;
+    });
 });
 
-['idade', 'bairro'].forEach(function (id) {
+['nome', 'telefone', 'idade', 'bairro'].forEach(function (id) {
   document.getElementById(id).addEventListener('input', function () {
     document.getElementById('c-' + id).classList.remove('invalido');
   });
