@@ -193,9 +193,9 @@ fbq('track', 'PageView');
     <p class="dica">3 perguntas rápidas e você continua a conversa com a gente no WhatsApp.</p>
 
     <div class="campo" id="c-idade">
-      <label for="idade">Qual a sua idade?</label>
-      <input id="idade" name="idade" type="number" inputmode="numeric" min="0" max="120" placeholder="Ex.: 42" required>
-      <div class="erro">Informe sua idade.</div>
+      <label for="idade">Quais as idades?</label>
+      <input id="idade" name="idade" type="text" maxlength="120" placeholder="Ex.: 42, 38 e 10" required>
+      <div class="erro">Informe as idades.</div>
     </div>
 
     <div class="campo" id="c-bairro">
@@ -267,8 +267,7 @@ form.addEventListener('submit', function (e) {
   var tipo = tipoEl ? tipoEl.value : '';
   var obs = form.obs.value.trim();
 
-  var n = Number(idade);
-  var ok = marcar('c-idade', idade !== '' && n >= 0 && n <= 120);
+  var ok = marcar('c-idade', /\d/.test(idade));   // precisa ter pelo menos um número
   ok = marcar('c-bairro', bairro !== '') && ok;
   ok = marcar('c-tipo', tipo !== '') && ok;
   if (!ok) {
@@ -279,7 +278,7 @@ form.addEventListener('submit', function (e) {
 
   var msg =
     'Olá, FF Corretora! Quero uma cotação de plano de saúde.\n\n' +
-    '*Idade:* ' + idade + '\n' +
+    '*Idades:* ' + idade + '\n' +
     '*Bairro:* ' + bairro + '\n' +
     '*CNPJ ou CPF:* ' + tipo + '\n' +
     '*Observações:* ' + (obs || '-');
