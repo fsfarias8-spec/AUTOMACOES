@@ -4,15 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FF Corretora | Cotação de Plano de Saúde</title>
-<meta name="description" content="Compare planos de saúde de várias operadoras para você, sua família ou sua empresa. Cotação gratuita pelo WhatsApp com a FF Corretora.">
+<meta name="description" content="Compare planos de saúde de várias operadoras para você, sua família ou sua empresa. Cotação gratuita com a FF Corretora.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#112351">
 <link rel="icon" href="logo-ff.jpg">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -24,152 +22,74 @@ fbq('init', '1654455076395772');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1654455076395772&ev=PageView&noscript=1"></noscript>
-
 <style>
   :root {
-    --navy: #112351;
-    --navy-2: #1a3270;
-    --gold: #f7d770;
-    --gold-2: #d9b14a;
-    --gold-3: #b8902f;
-    --cream: #f8f6f0;
-    --card: #ffffff;
-    --ink: #13213f;
-    --muted: #5b6478;
-    --line: #dfe3ec;
-    --erro: #b42318;
+    --navy: #112351; --navy-2: #1a3270; --gold: #f7d770; --gold-2: #d9b14a;
+    --cream: #f8f6f0; --card: #ffffff; --ink: #13213f; --muted: #5b6478; --line: #dfe3ec; --erro: #b42318;
     --serif: "Playfair Display", Georgia, "Times New Roman", serif;
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; }
-  body {
-    background: var(--cream);
-    color: var(--ink);
-    font: 16px/1.5 var(--sans);
-    -webkit-font-smoothing: antialiased;
-  }
+  body { background: var(--cream); color: var(--ink); font: 16px/1.5 var(--sans); -webkit-font-smoothing: antialiased; }
 
-  /* ---------- topo azul ---------- */
-  .hero {
-    background:
-      radial-gradient(120% 80% at 50% 0%, var(--navy-2) 0%, var(--navy) 60%);
-    color: #fff;
-    padding: 28px 16px 92px;
-    text-align: center;
-  }
+  .hero { background: radial-gradient(120% 80% at 50% 0%, var(--navy-2) 0%, var(--navy) 60%); color: #fff; padding: 22px 16px 84px; text-align: center; }
   .hero .in { max-width: 520px; margin: 0 auto; }
-  .logo {
-    width: 104px; height: 104px; border-radius: 50%;
-    display: block; margin: 0 auto 18px;
-    box-shadow: 0 0 0 2px rgba(247,215,112,.35), 0 10px 30px rgba(0,0,0,.35);
-  }
-  h1 {
-    font-family: var(--serif); font-weight: 700;
-    font-size: 30px; line-height: 1.15; margin: 0 0 12px; letter-spacing: -.01em;
-  }
-  h1 em {
-    font-style: normal;
-    background: linear-gradient(180deg, #fff3c4 0%, var(--gold) 45%, var(--gold-2) 100%);
-    -webkit-background-clip: text; background-clip: text; color: var(--gold);
-    -webkit-text-fill-color: transparent;
-  }
-  .sub { color: #d6dcef; margin: 0 auto; max-width: 440px; }
-  .ornamento {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-    margin: 18px auto 0; color: var(--gold);
-  }
-  .ornamento::before, .ornamento::after {
-    content: ""; height: 1px; width: 90px; background: linear-gradient(90deg, transparent, var(--gold));
-  }
-  .ornamento::after { transform: scaleX(-1); }
+  .logo { width: 84px; height: 84px; border-radius: 50%; display: block; margin: 0 auto 14px; box-shadow: 0 0 0 2px rgba(247,215,112,.35), 0 10px 30px rgba(0,0,0,.35); }
+  h1 { font-family: var(--serif); font-weight: 700; font-size: 27px; line-height: 1.15; margin: 0 0 8px; }
+  h1 em { font-style: normal; color: var(--gold); }
+  .sub { color: #d6dcef; margin: 0 auto; max-width: 440px; font-size: 15px; }
 
-  /* ---------- conteúdo ---------- */
-  .wrap { max-width: 520px; margin: -64px auto 0; padding: 0 16px 40px; }
+  .wrap { max-width: 520px; margin: -60px auto 0; padding: 0 16px 40px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--gold-2); border-radius: 16px; padding: 20px 16px 22px; box-shadow: 0 10px 30px rgba(17,35,81,.10); }
 
-  .tipos-plano {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px;
-  }
-  .tipos-plano div {
-    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-    padding: 12px 6px; text-align: center; font-size: 12px; font-weight: 700;
-    color: var(--navy); letter-spacing: .04em; text-transform: uppercase;
-    box-shadow: 0 6px 18px rgba(17,35,81,.08);
-  }
-  .tipos-plano svg { display: block; margin: 0 auto 6px; color: var(--navy); }
+  /* progresso */
+  .prog { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 13px; color: var(--muted); }
+  .prog b { color: var(--navy); }
+  .barra { height: 6px; background: var(--line); border-radius: 99px; overflow: hidden; margin-bottom: 18px; }
+  .barra i { display: block; height: 100%; width: 33%; background: linear-gradient(90deg, var(--gold-2), var(--gold)); border-radius: 99px; transition: width .3s; }
 
-  form {
-    background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--gold-2);
-    border-radius: 16px; padding: 22px 16px; box-shadow: 0 10px 30px rgba(17,35,81,.10);
-  }
-  form h2 { font-family: var(--serif); font-size: 22px; margin: 0 0 4px; color: var(--navy); }
-  form .dica { font-size: 14px; color: var(--muted); margin: 0 0 18px; }
+  .etapa { display: none; }
+  .etapa.ativa { display: block; animation: entra .25s ease; }
+  @keyframes entra { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+  .etapa h2 { font-family: var(--serif); font-size: 22px; line-height: 1.2; margin: 0 0 4px; color: var(--navy); }
+  .etapa .dica { font-size: 14px; color: var(--muted); margin: 0 0 16px; }
 
-  .campo { margin-bottom: 16px; }
-  label, legend { display: block; font-weight: 650; font-size: 15px; margin-bottom: 6px; color: var(--navy); }
+  /* etapa 1: escolha grande */
+  .escolhas { display: grid; gap: 12px; }
+  .escolha { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; border: 1.5px solid var(--line); border-radius: 14px; padding: 16px; background: #fff; cursor: pointer; font: inherit; color: var(--ink); }
+  .escolha:hover, .escolha:focus-visible { border-color: var(--navy); outline: none; box-shadow: 0 0 0 3px rgba(17,35,81,.12); }
+  .escolha .ic { flex: none; width: 46px; height: 46px; border-radius: 12px; background: var(--navy); color: var(--gold); display: grid; place-items: center; }
+  .escolha strong { display: block; font-size: 17px; color: var(--navy); }
+  .escolha span { font-size: 13px; color: var(--muted); }
+  .escolha .seta { margin-left: auto; color: var(--gold-2); font-size: 22px; }
+
+  .campo { margin-bottom: 14px; }
+  label { display: block; font-weight: 650; font-size: 15px; margin-bottom: 6px; color: var(--navy); }
   .opc { font-weight: 400; color: var(--muted); font-size: 13px; }
-  input[type=number], input[type=text], input[type=tel], textarea {
-    width: 100%; font: inherit; font-size: 16px; color: var(--ink);
-    border: 1.5px solid var(--line); border-radius: 10px; padding: 12px;
-    background: #fff; outline: none;
-  }
-  textarea { min-height: 104px; resize: vertical; }
+  input, textarea { width: 100%; font: inherit; font-size: 16px; color: var(--ink); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px; background: #fff; outline: none; }
+  textarea { min-height: 84px; resize: vertical; }
   input:focus, textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(17,35,81,.12); }
-
-  fieldset { border: 0; padding: 0; margin: 0 0 16px; min-width: 0; }
-  .tipos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .tipo { position: relative; margin: 0; }
-  .tipo input { position: absolute; opacity: 0; pointer-events: none; }
-  .tipo span {
-    display: block; border: 1.5px solid var(--line); border-radius: 10px;
-    padding: 12px 10px; text-align: center; cursor: pointer; font-weight: 800; color: var(--navy);
-  }
-  .tipo span small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
-  .tipo input:checked + span { border-color: var(--navy); background: var(--navy); color: var(--gold); }
-  .tipo input:checked + span small { color: #d6dcef; }
-  .tipo input:focus-visible + span { box-shadow: 0 0 0 3px rgba(17,35,81,.25); }
-
   .erro { color: var(--erro); font-size: 13px; margin-top: 4px; display: none; }
-  .campo.invalido .erro, fieldset.invalido .erro { display: block; }
-  .campo.invalido input, .campo.invalido textarea { border-color: var(--erro); }
-  fieldset.invalido .tipo span { border-color: var(--erro); }
+  .campo.invalido .erro { display: block; }
+  .campo.invalido input { border-color: var(--erro); }
 
-  button {
-    width: 100%; border: 0; border-radius: 12px; padding: 16px; cursor: pointer;
-    background: linear-gradient(180deg, #fbe08a 0%, var(--gold-2) 100%);
-    color: var(--navy); font: inherit; font-size: 17px; font-weight: 800;
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    box-shadow: 0 6px 16px rgba(184,144,47,.35), inset 0 1px 0 rgba(255,255,255,.6);
-  }
-  button:active { transform: translateY(1px); }
-  .priv { font-size: 12px; color: var(--muted); text-align: center; margin: 10px 0 0; }
-  .priv a { color: var(--muted); }
-  button[disabled] { opacity: .7; cursor: wait; }
+  .acoes { display: flex; gap: 10px; align-items: center; margin-top: 4px; }
+  .voltar { background: none; border: 0; color: var(--muted); font: inherit; font-size: 15px; cursor: pointer; padding: 14px 6px; }
+  .btn { flex: 1; border: 0; border-radius: 12px; padding: 15px; cursor: pointer; font: inherit; font-size: 17px; font-weight: 800; color: var(--navy);
+    background: linear-gradient(180deg, #fbe08a 0%, var(--gold-2) 100%); box-shadow: 0 6px 16px rgba(184,144,47,.35), inset 0 1px 0 rgba(255,255,255,.6); }
+  .seguro { font-size: 12px; color: var(--muted); text-align: center; margin: 10px 0 0; }
+
+  .sucesso { text-align: center; padding: 10px 0; }
+  .sucesso .ok { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 12px; background: var(--navy); color: var(--gold); font-size: 28px; font-weight: 800; display: grid; place-items: center; }
+
+  .selos { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 8px; font-size: 14px; }
+  .selos li { display: flex; gap: 10px; }
+  .selos li::before { content: "✓"; flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); color: var(--gold); font-size: 12px; font-weight: 800; display: grid; place-items: center; }
+  .seguro a { color: var(--muted); }
+  .btn[disabled] { opacity: .7; cursor: wait; }
   .erro-envio { color: var(--erro); font-size: 14px; text-align: center; margin: 10px 0 0; }
-  .sucesso {
-    background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--gold-2);
-    border-radius: 16px; padding: 28px 18px; text-align: center; box-shadow: 0 10px 30px rgba(17,35,81,.10);
-  }
-  .sucesso .ok {
-    width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 12px;
-    background: var(--navy); color: var(--gold); font-size: 28px; font-weight: 800;
-    display: grid; place-items: center;
-  }
-  .sucesso h2 { font-family: var(--serif); color: var(--navy); margin: 0 0 6px; font-size: 22px; }
-  .sucesso p { margin: 0; color: var(--muted); }
-
-  .selos { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; }
-  .selos li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
-  .selos li::before {
-    content: "✓"; flex: none; width: 22px; height: 22px; border-radius: 50%;
-    background: var(--navy); color: var(--gold); font-size: 13px; font-weight: 800;
-    display: grid; place-items: center; margin-top: 1px;
-  }
-
-  footer {
-    background: var(--navy); color: #c7cee3; text-align: center;
-    font-size: 13px; padding: 22px 16px;
-  }
+  footer { background: var(--navy); color: #c7cee3; text-align: center; font-size: 13px; padding: 20px 16px; }
   footer strong { font-family: var(--serif); color: var(--gold); font-size: 16px; letter-spacing: .08em; }
   footer a { color: #c7cee3; }
 </style>
@@ -178,87 +98,93 @@ fbq('track', 'PageView');
 
 <section class="hero">
   <div class="in">
-    <img class="logo" src="logo-ff.jpg" alt="FF Corretora" width="104" height="104">
+    <img class="logo" src="logo-ff.jpg" alt="FF Corretora" width="84" height="84">
     <h1>Encontre o plano de saúde com o <em>melhor custo-benefício</em></h1>
-    <p class="sub">Para você, sua família ou sua empresa. Comparamos as operadoras e enviamos sua cotação gratuita pelo WhatsApp.</p>
-    <div class="ornamento" aria-hidden="true">◆</div>
+    <p class="sub">Cotação gratuita em várias operadoras. Leva menos de 1 minuto.</p>
   </div>
 </section>
 
 <main class="wrap">
-
-  <div class="tipos-plano" aria-label="Tipos de plano">
-    <div>
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      Individual
-    </div>
-    <div>
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="7" cy="6" r="2.6"/><circle cx="17" cy="6" r="2.6"/><circle cx="12" cy="12" r="2"/><path d="M2.5 20v-4.5A3.5 3.5 0 0 1 6 12h2M21.5 20v-4.5A3.5 3.5 0 0 0 18 12h-2M8.5 21v-2.5a3.5 3.5 0 0 1 7 0V21"/></svg>
-      Familiar
-    </div>
-    <div>
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1M10.5 21v-3h3v3"/></svg>
-      Empresarial
-    </div>
-  </div>
-
-  <form id="form" novalidate>
-    <h2>Receba sua cotação</h2>
-    <p class="dica">Preencha em menos de 1 minuto. A nossa equipe te chama no WhatsApp com as opções.</p>
-
-    <div class="campo" id="c-nome">
-      <label for="nome">Seu nome</label>
-      <input id="nome" name="nome" type="text" autocomplete="name" maxlength="80" placeholder="Ex.: Maria Silva" required>
-      <div class="erro">Informe seu nome.</div>
+  <div class="card">
+    <div id="topo-prog">
+      <div class="prog"><span>Etapa <b id="n-etapa">1</b> de 3</span><span id="rotulo">Tipo de plano</span></div>
+      <div class="barra"><i id="barra"></i></div>
     </div>
 
-    <div class="campo" id="c-telefone">
-      <label for="telefone">Seu WhatsApp com DDD</label>
-      <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="Ex.: (11) 91234-5678" required>
-      <div class="erro">Informe um WhatsApp válido com DDD.</div>
-    </div>
-
-    <!-- anti-robô: humanos não veem este campo -->
-    <input type="text" name="_honey" id="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-
-    <div class="campo" id="c-idade">
-      <label for="idade">Quais as idades?</label>
-      <input id="idade" name="idade" type="text" maxlength="120" placeholder="Ex.: 42, 38 e 10" required>
-      <div class="erro">Informe as idades.</div>
-    </div>
-
-    <div class="campo" id="c-bairro">
-      <label for="bairro">Qual o seu bairro?</label>
-      <input id="bairro" name="bairro" type="text" autocomplete="address-level3" placeholder="Ex.: Brás, Mooca, Tatuapé" required>
-      <div class="erro">Informe seu bairro.</div>
-    </div>
-
-    <fieldset id="c-tipo">
-      <legend>O plano é para CNPJ ou CPF?</legend>
-      <div class="tipos">
-        <label class="tipo"><input type="radio" name="tipo" value="CNPJ"><span>CNPJ<small>Empresa ou MEI</small></span></label>
-        <label class="tipo"><input type="radio" name="tipo" value="CPF"><span>CPF<small>Pessoa física</small></span></label>
+    <!-- ETAPA 1 -->
+    <section class="etapa ativa" data-etapa="1">
+      <h2>O plano é para CNPJ ou CPF?</h2>
+      <p class="dica">Toque em uma opção para continuar.</p>
+      <div class="escolhas">
+        <button type="button" class="escolha" data-tipo="CNPJ">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1M10.5 21v-3h3v3"/></svg></span>
+          <span><strong>CNPJ</strong><span>Empresa ou MEI · a partir de 2 vidas</span></span>
+          <span class="seta">›</span>
+        </button>
+        <button type="button" class="escolha" data-tipo="CPF">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></span>
+          <span><strong>CPF</strong><span>Pessoa física · a partir de 1 vida</span></span>
+          <span class="seta">›</span>
+        </button>
       </div>
-      <div class="erro">Escolha CNPJ ou CPF.</div>
-    </fieldset>
+    </section>
 
-    <div class="campo">
-      <label for="obs">Observações <span class="opc">(opcional)</span></label>
-      <textarea id="obs" name="obs" maxlength="800" placeholder="Ex.: Tem plano, quer reduzir custo, melhorar a rede de atendimento"></textarea>
-    </div>
+    <!-- ETAPA 2 -->
+    <section class="etapa" data-etapa="2">
+      <h2>Quem vai entrar no plano?</h2>
+      <p class="dica">Com as idades e o bairro já conseguimos montar sua cotação.</p>
+      <div class="campo" id="c-idade">
+        <label for="idade">Quais as idades?</label>
+        <input id="idade" type="text" placeholder="Ex.: 42, 38 e 10">
+        <div class="erro">Informe as idades.</div>
+      </div>
+      <div class="campo" id="c-bairro">
+        <label for="bairro">Qual o seu bairro?</label>
+        <input id="bairro" type="text" placeholder="Ex.: Brás, Mooca, Tatuapé">
+        <div class="erro">Informe seu bairro.</div>
+      </div>
+      <div class="acoes">
+        <button type="button" class="voltar" data-ir="1">‹ Voltar</button>
+        <button type="button" class="btn" id="ir3">Continuar</button>
+      </div>
+    </section>
 
-    <button type="submit">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.1 1.2z"/></svg>
-      <span id="btn-txt">Quero minha cotação</span>
-    </button>
-    <p class="erro-envio" id="erro-envio" hidden>Não conseguimos enviar agora. Tente de novo em instantes.</p>
-    <p class="priv">Suas respostas vão só para a equipe da FF Corretora. <a href="privacidade.html">Privacidade</a></p>
-  </form>
+    <!-- ETAPA 3 -->
+    <section class="etapa" data-etapa="3">
+      <h2>Para onde enviamos sua cotação?</h2>
+      <p class="dica">Última etapa. A nossa equipe te chama no WhatsApp com as opções.</p>
+      <div class="campo" id="c-nome">
+        <label for="nome">Seu nome</label>
+        <input id="nome" type="text" autocomplete="name" placeholder="Ex.: Maria Silva">
+        <div class="erro">Informe seu nome.</div>
+      </div>
+      <div class="campo" id="c-tel">
+        <label for="tel">Seu WhatsApp com DDD</label>
+        <input id="tel" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 91234-5678" maxlength="15">
+        <div class="erro">Informe um WhatsApp válido com DDD.</div>
+      </div>
+      <div class="campo">
+        <label for="obs">Observações <span class="opc">(opcional)</span></label>
+        <textarea id="obs" placeholder="Ex.: Tem plano, quer reduzir custo, melhorar a rede de atendimento"></textarea>
+      </div>
+      <!-- anti-robô: humanos não veem este campo -->
+      <input type="text" id="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px" aria-hidden="true">
+      <div class="acoes">
+        <button type="button" class="voltar" data-ir="2">‹ Voltar</button>
+        <button type="button" class="btn" id="enviar">Quero minha cotação</button>
+      </div>
+      <p class="erro-envio" id="erro-envio" hidden>Não conseguimos enviar agora. Tente de novo em instantes.</p>
+      <p class="seguro">🔒 Seus dados vão só para a equipe da FF Corretora. <a href="privacidade.html">Privacidade</a></p>
+    </section>
 
-  <div class="sucesso" id="sucesso" hidden>
-    <div class="ok">✓</div>
-    <h2>Recebemos seu pedido!</h2>
-    <p>A equipe da FF Corretora vai te chamar no WhatsApp em breve com as opções de plano.</p>
+    <!-- SUCESSO -->
+    <section class="etapa" data-etapa="4">
+      <div class="sucesso">
+        <div class="ok">✓</div>
+        <h2>Recebemos seu pedido!</h2>
+        <p class="dica">A equipe da FF Corretora vai te chamar no WhatsApp em breve com as opções de plano.</p>
+      </div>
+    </section>
   </div>
 
   <ul class="selos">
@@ -271,72 +197,75 @@ fbq('track', 'PageView');
 
 <footer>
   <strong>FF CORRETORA</strong><br>
-  Planos de Saúde e Seguro de Vida · <a href="https://instagram.com/ff.corretora" target="_blank" rel="noopener">@ff.corretora</a>
-  <span id="susep"></span><br>
+  Planos de Saúde e Seguro de Vida · <a href="https://instagram.com/ff.corretora" target="_blank" rel="noopener">@ff.corretora</a><br>
   <a href="privacidade.html">Política de Privacidade</a>
 </footer>
 
 <script>
-// ===== CONFIGURAÇÃO: edite só aqui =====
-var CONFIG = {
-  // para onde o lead vai (FormSubmit). Depois de ativar, troque o e-mail pelo código que o FormSubmit enviar
-  destino: 'https://formsubmit.co/ajax/corretoraf.farias@gmail.com',
-  susep: ''                    // ex.: 'SUSEP nº 123456' (deixe vazio para não mostrar)
-};
-// =======================================
-
-if (CONFIG.susep) document.getElementById('susep').textContent = ' · ' + CONFIG.susep;
-
-var form = document.getElementById('form');
-
-function marcar(id, ok) {
-  document.getElementById(id).classList.toggle('invalido', !ok);
-  return ok;
+// ===== CONFIGURAÇÃO =====
+var DESTINO = 'https://formsubmit.co/ajax/corretoraf.farias@gmail.com';   // e-mail que recebe os leads
+// ========================
+var tipo = '';
+var medido = {};
+function medir(n) {   // registra no Pixel até qual etapa a pessoa chegou (1 vez por etapa)
+  if (medido[n]) return; medido[n] = true;
+  try { fbq('trackCustom', 'FormularioEtapa', { etapa: n }); } catch (e) {}
 }
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  // valores EXATAMENTE como a pessoa digitou (só tira espaços nas pontas)
-  var nome = form.nome.value.trim();
-  var telefone = form.telefone.value.trim();
-  var idade = form.idade.value.trim();
-  var bairro = form.bairro.value.trim();
-  var tipoEl = form.querySelector('input[name=tipo]:checked');
-  var tipo = tipoEl ? tipoEl.value : '';
-  var obs = form.obs.value.trim();
-
-  var ok = marcar('c-nome', nome !== '');
-  ok = marcar('c-telefone', telefone.replace(/\D/g, '').length >= 10) && ok;   // DDD + número
-  ok = marcar('c-idade', /\d/.test(idade)) && ok;                              // pelo menos um número
-  ok = marcar('c-bairro', bairro !== '') && ok;
-  ok = marcar('c-tipo', tipo !== '') && ok;
-  if (!ok) {
-    var primeiro = form.querySelector('.invalido');
-    if (primeiro) primeiro.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
+var rotulos = { 1: 'Tipo de plano', 2: 'Idades e bairro', 3: 'Seu contato' };
+function ir(n) {
+  if (n >= 2 && n <= 3) medir(n);
+  document.querySelectorAll('.etapa').forEach(function (e) { e.classList.toggle('ativa', e.dataset.etapa == n); });
+  document.getElementById('topo-prog').style.display = n > 3 ? 'none' : '';
+  if (n <= 3) {
+    document.getElementById('n-etapa').textContent = n;
+    document.getElementById('rotulo').textContent = rotulos[n];
+    document.getElementById('barra').style.width = (n / 3 * 100) + '%';
   }
+}
+function marcar(id, ok) { document.getElementById(id).classList.toggle('invalido', !ok); return ok; }
 
-  var botao = form.querySelector('button');
-  var erroEnvio = document.getElementById('erro-envio');
-  botao.disabled = true;
-  document.getElementById('btn-txt').textContent = 'Enviando...';
-  erroEnvio.hidden = true;
+document.querySelectorAll('.escolha').forEach(function (b) {
+  b.addEventListener('click', function () { tipo = b.dataset.tipo; ir(2); });
+});
+document.querySelectorAll('.voltar').forEach(function (b) { b.addEventListener('click', function () { ir(+b.dataset.ir); }); });
+document.getElementById('ir3').addEventListener('click', function () {
+  var ok = marcar('c-idade', /\d/.test(document.getElementById('idade').value));
+  ok = marcar('c-bairro', document.getElementById('bairro').value.trim() !== '') && ok;
+  if (ok) ir(3);
+});
+// máscara (11) 91234-5678
+document.getElementById('tel').addEventListener('input', function (e) {
+  var d = e.target.value.replace(/\D/g, '').slice(0, 11), s = d;
+  if (d.length > 2) s = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+  if (d.length > 7) s = '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
+  e.target.value = s;
+});
+document.getElementById('enviar').addEventListener('click', function () {
+  // valores EXATAMENTE como a pessoa digitou (só tira espaços nas pontas)
+  var nome = document.getElementById('nome').value.trim();
+  var tel = document.getElementById('tel').value.trim();
+  var ok = marcar('c-nome', nome !== '');
+  ok = marcar('c-tel', tel.replace(/\D/g, '').length >= 10) && ok;
+  if (!ok) return;
+
+  var botao = document.getElementById('enviar');
+  var erro = document.getElementById('erro-envio');
+  botao.disabled = true; botao.textContent = 'Enviando...'; erro.hidden = true;
 
   var dados = {
     'Nome': nome,
-    'WhatsApp': telefone,
-    'Idades': idade,
-    'Bairro': bairro,
+    'WhatsApp': tel,
     'CNPJ ou CPF': tipo,
-    'Observações': obs || '-',
+    'Idades': document.getElementById('idade').value.trim(),
+    'Bairro': document.getElementById('bairro').value.trim(),
+    'Observações': document.getElementById('obs').value.trim() || '-',
     _subject: 'Novo lead plano de saúde: ' + nome + ' (' + tipo + ')',
     _template: 'table',
     _captcha: 'false',
     _honey: document.getElementById('_honey').value
   };
 
-  fetch(CONFIG.destino, {
+  fetch(DESTINO, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify(dados)
@@ -344,27 +273,12 @@ form.addEventListener('submit', function (e) {
     .then(function (r) { return r.json(); })
     .then(function (res) {
       if (String(res.success) !== 'true') throw new Error(res.message || 'falha');
-      // conta o lead no Pixel (só o tipo, sem dados pessoais)
-      try { fbq('track', 'Lead', { content_category: tipo }); } catch (err) {}
-      form.hidden = true;
-      var s = document.getElementById('sucesso');
-      s.hidden = false;
-      s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      try { fbq('track', 'Lead', { content_category: tipo }); } catch (e) {}   // sem dados pessoais
+      ir(4);
     })
     .catch(function () {
-      botao.disabled = false;
-      document.getElementById('btn-txt').textContent = 'Quero minha cotação';
-      erroEnvio.hidden = false;
+      botao.disabled = false; botao.textContent = 'Quero minha cotação'; erro.hidden = false;
     });
-});
-
-['nome', 'telefone', 'idade', 'bairro'].forEach(function (id) {
-  document.getElementById(id).addEventListener('input', function () {
-    document.getElementById('c-' + id).classList.remove('invalido');
-  });
-});
-form.querySelectorAll('input[name=tipo]').forEach(function (r) {
-  r.addEventListener('change', function () { marcar('c-tipo', true); });
 });
 </script>
 </body>
