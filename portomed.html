@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FF Corretora | Portomed · Linha Porto Bairro</title>
+<meta name="description" content="Compare planos de saúde de várias operadoras para você, sua família ou sua empresa. Cotação gratuita com a FF Corretora.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#112351">
+<link rel="icon" href="logo-ff.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1654455076395772');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1654455076395772&ev=PageView&noscript=1"></noscript>
+<style>
+  :root {
+    --navy: #112351; --navy-2: #1a3270; --gold: #f7d770; --gold-2: #d9b14a;
+    --cream: #f8f6f0; --card: #ffffff; --ink: #13213f; --muted: #5b6478; --line: #dfe3ec; --erro: #b42318;
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--cream); color: var(--ink); font: 16px/1.5 var(--sans); -webkit-font-smoothing: antialiased; }
+
+  .hero { background: radial-gradient(120% 80% at 50% 0%, var(--navy-2) 0%, var(--navy) 60%); color: #fff; padding: 22px 16px 84px; text-align: center; }
+  .hero .in { max-width: 520px; margin: 0 auto; }
+  .logo { width: 84px; height: 84px; border-radius: 50%; display: block; margin: 0 auto 14px; box-shadow: 0 0 0 2px rgba(247,215,112,.35), 0 10px 30px rgba(0,0,0,.35); }
+  h1 { font-family: var(--serif); font-weight: 700; font-size: 27px; line-height: 1.15; margin: 0 0 8px; }
+  h1 em { font-style: normal; color: var(--gold); }
+  .sub { color: #d6dcef; margin: 0 auto; max-width: 440px; font-size: 15px; }
+
+  .wrap { max-width: 520px; margin: -60px auto 0; padding: 0 16px 40px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--gold-2); border-radius: 16px; padding: 20px 16px 22px; box-shadow: 0 10px 30px rgba(17,35,81,.10); }
+
+  /* progresso */
+  .prog { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 13px; color: var(--muted); }
+  .prog b { color: var(--navy); }
+  .barra { height: 6px; background: var(--line); border-radius: 99px; overflow: hidden; margin-bottom: 18px; }
+  .barra i { display: block; height: 100%; width: 33%; background: linear-gradient(90deg, var(--gold-2), var(--gold)); border-radius: 99px; transition: width .3s; }
+
+  .etapa { display: none; }
+  .etapa.ativa { display: block; animation: entra .25s ease; }
+  @keyframes entra { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+  .etapa h2 { font-family: var(--serif); font-size: 22px; line-height: 1.2; margin: 0 0 4px; color: var(--navy); }
+  .etapa .dica { font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+
+  /* etapa 1: escolha grande */
+  .escolhas { display: grid; gap: 12px; }
+  .escolha { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; border: 1.5px solid var(--line); border-radius: 14px; padding: 16px; background: #fff; cursor: pointer; font: inherit; color: var(--ink); }
+  .escolha:hover, .escolha:focus-visible { border-color: var(--navy); outline: none; box-shadow: 0 0 0 3px rgba(17,35,81,.12); }
+  .escolha .ic { flex: none; width: 46px; height: 46px; border-radius: 12px; background: var(--navy); color: var(--gold); display: grid; place-items: center; }
+  .escolha strong { display: block; font-size: 17px; color: var(--navy); }
+  .escolha span { font-size: 13px; color: var(--muted); }
+  .escolha .seta { margin-left: auto; color: var(--gold-2); font-size: 22px; }
+
+  .campo { margin-bottom: 14px; }
+  label { display: block; font-weight: 650; font-size: 15px; margin-bottom: 6px; color: var(--navy); }
+  .opc { font-weight: 400; color: var(--muted); font-size: 13px; }
+  input, textarea { width: 100%; font: inherit; font-size: 16px; color: var(--ink); border: 1.5px solid var(--line); border-radius: 10px; padding: 12px; background: #fff; outline: none; }
+  textarea { min-height: 84px; resize: vertical; }
+  input:focus, textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(17,35,81,.12); }
+  .erro { color: var(--erro); font-size: 13px; margin-top: 4px; display: none; }
+  .campo.invalido .erro { display: block; }
+  .campo.invalido input { border-color: var(--erro); }
+
+  .acoes { display: flex; gap: 10px; align-items: center; margin-top: 4px; }
+  .voltar { background: none; border: 0; color: var(--muted); font: inherit; font-size: 15px; cursor: pointer; padding: 14px 6px; }
+  .btn { flex: 1; border: 0; border-radius: 12px; padding: 15px; cursor: pointer; font: inherit; font-size: 17px; font-weight: 800; color: var(--navy);
+    background: linear-gradient(180deg, #fbe08a 0%, var(--gold-2) 100%); box-shadow: 0 6px 16px rgba(184,144,47,.35), inset 0 1px 0 rgba(255,255,255,.6); }
+  .seguro { font-size: 12px; color: var(--muted); text-align: center; margin: 10px 0 0; }
+
+  .sucesso { text-align: center; padding: 10px 0; }
+  .sucesso .ok { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 12px; background: var(--navy); color: var(--gold); font-size: 28px; font-weight: 800; display: grid; place-items: center; }
+
+  .selos { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 8px; font-size: 14px; }
+  .selos li { display: flex; gap: 10px; }
+  .selos li::before { content: "✓"; flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); color: var(--gold); font-size: 12px; font-weight: 800; display: grid; place-items: center; }
+  .seguro a { color: var(--muted); }
+  .btn[disabled] { opacity: .7; cursor: wait; }
+  .erro-envio { color: var(--erro); font-size: 14px; text-align: center; margin: 10px 0 0; }
+  footer { background: var(--navy); color: #c7cee3; text-align: center; font-size: 13px; padding: 20px 16px; }
+  footer strong { font-family: var(--serif); color: var(--gold); font-size: 16px; letter-spacing: .08em; }
+  footer a { color: #c7cee3; }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="in">
+    <img class="logo" src="logo-ff.jpg" alt="FF Corretora" width="84" height="84">
+    <h1>Plano empresarial com a <em>rede do seu bairro</em></h1>
+    <p class="sub">Portomed · Linha Porto Bairro (Porto Saúde). Para CNPJ a partir de 3 vidas. Cotação gratuita em menos de 1 minuto.</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="card">
+    <div id="topo-prog">
+      <div class="prog"><span>Etapa <b id="n-etapa">1</b> de 3</span><span id="rotulo">Tipo de plano</span></div>
+      <div class="barra"><i id="barra"></i></div>
+    </div>
+
+    <!-- ETAPA 1 -->
+    <section class="etapa ativa" data-etapa="1">
+      <h2>Quantas pessoas vão entrar no plano?</h2>
+      <p class="dica">Plano empresarial pelo CNPJ, de 3 a 99 vidas. Toque em uma opção.</p>
+      <div class="escolhas">
+        <button type="button" class="escolha" data-tipo="3 a 5 vidas">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="7" r="2.6"/><circle cx="12" cy="12" r="2"/><path d="M2.5 20v-4.5A3.5 3.5 0 0 1 6 12h2M21.5 20v-4.5A3.5 3.5 0 0 0 18 12h-2M8.5 21v-2.5a3.5 3.5 0 0 1 7 0V21"/></svg></span>
+          <span><strong>3 a 5 vidas</strong><span>Sócios, família e funcionários</span></span>
+          <span class="seta">›</span>
+        </button>
+        <button type="button" class="escolha" data-tipo="6 a 29 vidas">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M9 15h1M14 15h1M10.5 21v-3h3v3"/></svg></span>
+          <span><strong>6 a 29 vidas</strong><span>Pequena empresa</span></span>
+          <span class="seta">›</span>
+        </button>
+        <button type="button" class="escolha" data-tipo="30 a 99 vidas">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="8" height="14" rx="1"/><rect x="13" y="3" width="8" height="18" rx="1"/></svg></span>
+          <span><strong>30 a 99 vidas</strong><span>Empresa média</span></span>
+          <span class="seta">›</span>
+        </button>
+      </div>
+      <p class="dica" style="margin:14px 0 0">Menos de 3 pessoas ou pessoa física (CPF)? <a href="./">Veja outras opções de plano</a>.</p>
+    </section>
+
+    <!-- ETAPA 2 -->
+    <section class="etapa" data-etapa="2">
+      <h2>Quem vai entrar no plano?</h2>
+      <p class="dica">Com as idades e os bairros já conseguimos montar sua cotação.</p>
+      <div class="campo" id="c-idade">
+        <label for="idade">Quais as idades?</label>
+        <input id="idade" type="text" placeholder="Ex.: 42, 38 e 10">
+        <div class="erro">Informe as idades.</div>
+      </div>
+      <div class="campo" id="c-bairro">
+        <label for="bairro">Quais bairros você prefere para a rede? <span class="opc">(até 3)</span></label>
+        <input id="bairro" type="text" placeholder="Ex.: Centro, Tatuapé, Paulista">
+        <div class="erro">Informe pelo menos 1 bairro.</div>
+      </div>
+      <div class="acoes">
+        <button type="button" class="voltar" data-ir="1">‹ Voltar</button>
+        <button type="button" class="btn" id="ir3">Continuar</button>
+      </div>
+    </section>
+
+    <!-- ETAPA 3 -->
+    <section class="etapa" data-etapa="3">
+      <h2>Para onde enviamos sua cotação?</h2>
+      <p class="dica">Última etapa. A nossa equipe te chama no WhatsApp com as opções.</p>
+      <div class="campo" id="c-nome">
+        <label for="nome">Seu nome</label>
+        <input id="nome" type="text" autocomplete="name" placeholder="Ex.: Maria Silva">
+        <div class="erro">Informe seu nome.</div>
+      </div>
+      <div class="campo" id="c-tel">
+        <label for="tel">Seu WhatsApp com DDD</label>
+        <input id="tel" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 91234-5678" maxlength="15">
+        <div class="erro">Informe um WhatsApp válido com DDD.</div>
+      </div>
+      <div class="campo">
+        <label for="obs">Observações <span class="opc">(opcional)</span></label>
+        <textarea id="obs" placeholder="Ex.: Tem plano, quer reduzir custo, melhorar a rede de atendimento"></textarea>
+      </div>
+      <!-- anti-robô: humanos não veem este campo -->
+      <input type="text" id="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px" aria-hidden="true">
+      <div class="acoes">
+        <button type="button" class="voltar" data-ir="2">‹ Voltar</button>
+        <button type="button" class="btn" id="enviar">Quero minha cotação</button>
+      </div>
+      <p class="erro-envio" id="erro-envio" hidden>Não conseguimos enviar agora. Tente de novo em instantes.</p>
+      <p class="seguro">🔒 Seus dados vão só para a equipe da FF Corretora. <a href="privacidade.html">Privacidade</a></p>
+    </section>
+
+    <!-- SUCESSO -->
+    <section class="etapa" data-etapa="4">
+      <div class="sucesso">
+        <div class="ok">✓</div>
+        <h2>Recebemos seu pedido!</h2>
+        <p class="dica">A equipe da FF Corretora vai te chamar no WhatsApp em breve com as opções de plano.</p>
+      </div>
+    </section>
+  </div>
+
+  <ul class="selos">
+    <li>Hospitais e laboratórios de referência perto de você</li>
+    <li>Telemedicina e pediatra 24h, clínico na hora e terapia online</li>
+    <li>Plano empresarial pelo CNPJ, de 3 a 99 vidas</li>
+    <li>Atendimento humano do início ao fim</li>
+  </ul>
+  <p style="font-size:12px;color:var(--muted);margin:14px 0 0">Portomed – ANS nº 41749-1 · Rede Porto Saúde. Valores, rede e benefícios sujeitos a cotação e às regras da operadora.</p>
+  <ul style="display:none">
+  </ul>
+</main>
+
+<footer>
+  <strong>FF CORRETORA</strong><br>
+  Planos de Saúde e Seguro de Vida · <a href="https://instagram.com/ff.corretora" target="_blank" rel="noopener">@ff.corretora</a><br>
+  <a href="privacidade.html">Política de Privacidade</a>
+</footer>
+
+<script>
+// ===== CONFIGURAÇÃO =====
+var DESTINO = 'https://formsubmit.co/ajax/corretoraf.farias@gmail.com';   // e-mail que recebe os leads
+// ========================
+var tipo = '';
+var medido = {};
+function medir(n) {   // registra no Pixel até qual etapa a pessoa chegou (1 vez por etapa)
+  if (medido[n]) return; medido[n] = true;
+  try { fbq('trackCustom', 'FormularioEtapa', { etapa: n }); } catch (e) {}
+}
+var rotulos = { 1: 'Tamanho da empresa', 2: 'Idades e bairros', 3: 'Seu contato' };
+function ir(n) {
+  if (n >= 2 && n <= 3) medir(n);
+  document.querySelectorAll('.etapa').forEach(function (e) { e.classList.toggle('ativa', e.dataset.etapa == n); });
+  document.getElementById('topo-prog').style.display = n > 3 ? 'none' : '';
+  if (n <= 3) {
+    document.getElementById('n-etapa').textContent = n;
+    document.getElementById('rotulo').textContent = rotulos[n];
+    document.getElementById('barra').style.width = (n / 3 * 100) + '%';
+  }
+}
+function marcar(id, ok) { document.getElementById(id).classList.toggle('invalido', !ok); return ok; }
+
+document.querySelectorAll('.escolha').forEach(function (b) {
+  b.addEventListener('click', function () { tipo = b.dataset.tipo; ir(2); });
+});
+document.querySelectorAll('.voltar').forEach(function (b) { b.addEventListener('click', function () { ir(+b.dataset.ir); }); });
+document.getElementById('ir3').addEventListener('click', function () {
+  var ok = marcar('c-idade', /\d/.test(document.getElementById('idade').value));
+  ok = marcar('c-bairro', document.getElementById('bairro').value.trim() !== '') && ok;
+  if (ok) ir(3);
+});
+// máscara (11) 91234-5678
+document.getElementById('tel').addEventListener('input', function (e) {
+  var d = e.target.value.replace(/\D/g, '').slice(0, 11), s = d;
+  if (d.length > 2) s = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+  if (d.length > 7) s = '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
+  e.target.value = s;
+});
+document.getElementById('enviar').addEventListener('click', function () {
+  // valores EXATAMENTE como a pessoa digitou (só tira espaços nas pontas)
+  var nome = document.getElementById('nome').value.trim();
+  var tel = document.getElementById('tel').value.trim();
+  var ok = marcar('c-nome', nome !== '');
+  ok = marcar('c-tel', tel.replace(/\D/g, '').length >= 10) && ok;
+  if (!ok) return;
+
+  var botao = document.getElementById('enviar');
+  var erro = document.getElementById('erro-envio');
+  botao.disabled = true; botao.textContent = 'Enviando...'; erro.hidden = true;
+
+  var dados = {
+    'Nome': nome,
+    'WhatsApp': tel,
+    'Plano': 'PORTOMED - Linha Porto Bairro (CNPJ)',
+    'Vidas': tipo,
+    'Idades': document.getElementById('idade').value.trim(),
+    'Bairros preferidos': document.getElementById('bairro').value.trim(),
+    'Observações': document.getElementById('obs').value.trim() || '-',
+    _subject: 'Novo lead PORTOMED: ' + nome + ' (' + tipo + ')',
+    _template: 'table',
+    _captcha: 'false',
+    _honey: document.getElementById('_honey').value
+  };
+
+  fetch(DESTINO, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(dados)
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+      if (String(res.success) !== 'true') throw new Error(res.message || 'falha');
+      try { fbq('track', 'Lead', { content_category: 'Portomed' }); } catch (e) {}   // sem dados pessoais
+      ir(4);
+    })
+    .catch(function () {
+      botao.disabled = false; botao.textContent = 'Quero minha cotação'; erro.hidden = false;
+    });
+});
+</script>
+</body>
+</html>
