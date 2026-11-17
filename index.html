@@ -204,6 +204,8 @@ fbq('track', 'PageView');
 <script>
 // ===== CONFIGURAÇÃO =====
 var DESTINO = 'https://formsubmit.co/ajax/corretoraf.farias@gmail.com';   // e-mail que recebe os leads
+// de qual anúncio veio (link com ?origem=portomed). Sem marcação = Geral (anúncios Amil)
+var ORIGEM = ({ portomed: 'PortoMed' })[(new URLSearchParams(location.search).get('origem') || '').toLowerCase()] || 'Geral';
 // ========================
 var tipo = '';
 var medido = {};
@@ -259,7 +261,8 @@ document.getElementById('enviar').addEventListener('click', function () {
     'Idades': document.getElementById('idade').value.trim(),
     'Bairro': document.getElementById('bairro').value.trim(),
     'Observações': document.getElementById('obs').value.trim() || '-',
-    _subject: 'Novo lead plano de saúde: ' + nome + ' (' + tipo + ')',
+    'Origem': ORIGEM,
+    _subject: 'Novo lead plano de saúde' + (ORIGEM !== 'Geral' ? ' [' + ORIGEM + ']' : '') + ': ' + nome + ' (' + tipo + ')',
     _template: 'table',
     _captcha: 'false',
     _honey: document.getElementById('_honey').value
