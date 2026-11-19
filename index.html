@@ -204,6 +204,7 @@ fbq('track', 'PageView');
 <script>
 // ===== CONFIGURAÇÃO =====
 var DESTINO = 'https://formsubmit.co/ajax/corretoraf.farias@gmail.com';   // e-mail que recebe os leads
+var PLANILHA = 'https://script.google.com/macros/s/AKfycbxodbIfuOT8QAFW6GYjePt1whVC4YtmI_C-GI_as2Qff3lBPss4zvZD9ay1XK9Uo5bY/exec';   // aba Leads da Google Planilha (Apps Script da conta corretoraf)
 // de qual anúncio veio: link com ?origem=portomed = anúncio Porto Seguro; sem marcação = anúncio Amil
 var ORIGEM = ({ portomed: 'PORTO SEGURO (PortoMed)', amil: 'AMIL' })[(new URLSearchParams(location.search).get('origem') || '').toLowerCase()] || 'AMIL';
 // ========================
@@ -267,6 +268,9 @@ document.getElementById('enviar').addEventListener('click', function () {
     _captcha: 'false',
     _honey: document.getElementById('_honey').value
   };
+
+  // cópia para a planilha (não atrapalha o e-mail se falhar)
+  try { fetch(PLANILHA, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(dados) }).catch(function () {}); } catch (e) {}
 
   fetch(DESTINO, {
     method: 'POST',
